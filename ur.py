@@ -1,5 +1,5 @@
 import pygame
-import time
+from datetime import datetime
 import math
 
 
@@ -33,10 +33,10 @@ while run_flag:
             Hvis brugeren lukker vinduet, sættes run_flag til False, som afslutter løkken.'''
 
     # Fetch the actual time from the computer
-    current_time = time.time()
-    hours = current_time // 3600 % 12 # Ved at dividere med 3600 får vi antallet af timer, og ved at tage modulo af 12 får vi timerne i 12-timers format.
-    minutes = (current_time // 60) % 60 # Ved at dividere med 60 får vi antallet af minutter, og ved at tage modulo af 60 får vi minutterne i en time.
-    seconds = current_time % 60 # Ved at tage modulo af 60 får vi antallet af sekunder i et minut.
+    current_time = datetime.now()
+    hours = current_time.hour % 12 # Ved at tage modulo af 12 får vi timerne i 12-timers format.
+    minutes = current_time.minute # Antallet af minutter i en time.
+    seconds = current_time.second # Antallet af sekunder i et minut.
     '''I denne kode hentes den aktuelle tid fra computeren, og timer, minutter samt sekunder overføres til deres variabler.'''
 
     # Calculate the angles
